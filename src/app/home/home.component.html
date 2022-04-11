@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div *ngIf="!this.received" class="col">
+    <h1 style="text-align: center; margin-top: 50px">Upload your files here</h1>
+    <mat-card style="text-align: center">
+      <button #file mat-flat-button color="primary" style="text-align: center; cursor: pointer">Select Files
+        <input multiple class="fileInputButton"
+               (change)="uploadFile($event)" type="file" accept="text/plain"/>
+      </button>
+    </mat-card>
+  </div>
+  <div *ngIf="this.received && this.filesList.length === 4" class="container">
+    <div class="row justify-content-center mt-50">
+      <div *ngFor="let file of this.filesList">
+        <h1>{{file.fileName}}</h1>
+        <div class="col-sm words-list">
+          <table class="table" >
+            <thead>
+            <tr>
+              <th>Word</th>
+              <th>Frequency</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let line of file.contentInMap | keyvalue">
+              <td>{{line.key}}</td>
+              <td>{{line.value}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <button mat-flat-button color="primary" (click)="downloadFile(file)">Download</button>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-50">
+      <button mat-flat-button color="primary" (click)="downloadAllFiles()">Download All</button>
+    </div>
+    <div class="row justify-content-center mt-50">
+      <button mat-flat-button color="primary" (click)="goBack()">Upload New Files</button>
+    </div>
+  </div>
+</div>

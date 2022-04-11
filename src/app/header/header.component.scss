@@ -1,0 +1,28 @@
+/*header*/
+
+.header {
+  background: rgb(45, 45, 45);
+}
+
+.header-logotype {
+  width: auto;
+  height: 48px;
+  cursor: pointer;
+}
+
+.global-nav-bar__title {
+  font-size: 16px;
+  font-family: SEBSansMedium,sans-serif;
+  margin: 0;
+}
+
+.fa-print {
+  cursor: pointer;
+}
+
+.ui-menu-separator {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
